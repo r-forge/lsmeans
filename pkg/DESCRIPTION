@@ -1,0 +1,11 @@
+Package: lsmeans
+Type: Package
+Title: Calculates the lsmeans and their variances for lm, gls or lme models
+Version: 1.0
+Date: 2010-03-03
+Author: Julio A. Di Rienzo dirienzo@agro.unc.edu.ar http://sites.google.com/site/juliodirienzo
+Maintainer: Maria del Carmen Romero <mariadelc.romero@gmail.com>
+Description: Calculates the lsmeans and their variances for lm, gls or lme models.
+	It also contains a function for mean comparisons and for contrasting linear
+	combination of parameters in the modelMore about what it does (maybe more than one line)
+License: GPL (>=2)
