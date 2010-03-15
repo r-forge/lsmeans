@@ -3,7 +3,7 @@
 \title{CalculateMmatrix}
 \description{
 Calculates a matrix needed for other routines in the lsmeans package. 
-This function is computationally demanding and there is no need to call it more than once for a given model
+This function is computationally demanding and there is no need to call it more than once for a given model.
 }
 \usage{
 CalculateMmatrix(myModel, myData)

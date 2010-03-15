@@ -14,10 +14,10 @@ MeansComparison(MeanLabel1, MeanLabel2, Mmatrix, myModel, myDF = 0)
 \arguments{
   \item{MeanLabel1}{
 
-String identifying a level of a factor or a combination of levels of interacting factors
+String identifying a level of a factor or a combination of levels of interacting factors.
 The factors involved had to be declared in the model formula. 
-Let Suppose that the model formula is Y~FactorA+FactorB+FactorA:FactorB+CovariableX,
-If FactorA has three levels A1,A2 and A3, FactorB has two level B1 and B2, examples of 
+Let suppose that the model formula is Y~FactorA+FactorB+FactorA:FactorB+CovariableX,
+if FactorA has three levels A1,A2 and A3, FactorB has two level B1 and B2, examples of 
 admissible calls are:
 
 MeansComparison("FactorAA1","FactorAA3", Mmatrix, myModel,myDF)
@@ -37,9 +37,9 @@ MeansComparison("FactorAA1:FactorBB1","FactorAA1:FactorBB2", Mmatrix, myModel,my
   \item{myDF}{
 
 It represents the degree of freedom of the appropriate error term for the comparison. 
-These degreed of freedom can be obtained from tha anova table.
+These degrees of freedom can be obtained from tha anova table.
 The function that performs a test is similar to a T-test.
-If myDF is not specifyed or set to zero it uses the anova function for a linear combination of
+If myDF is not specified or set to zero it uses the anova function for a linear combination of
 the parameter.
 }
 }

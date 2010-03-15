@@ -15,13 +15,13 @@ contrastLC(myModel, myCombination)
 	An object of class lm, gls or mle.
 }
   \item{myCombination}{
-	A vector of lengh p (p=the number of parameters of the fixed part of the fitted model) containing  a set of coefficients.
-        These coefficients define a linear combination of the parameters which expected value under the null hypotesis is zero.
-        It also admit a k*p matrix of coefficients, each row representing a linear combination.
+	A vector of length p (p=the number of parameters of the fixed part of the fitted model) containing  a set of coefficients.
+        These coefficients define a linear combination of the parameters which expected value under the null hypothesis is zero.
+        It also admits a k*p matrix of coefficients, each row representing a linear combination.
 }
 }
 \details{
-Let myParameters be the vector of model parameters. Then the null hypotesis is myCombination%*%myParameters=0
+Let myParameters be the vector of model parameters. Then the null hypothesis is myCombination%*%myParameters=0
 }
 \value{
 An objetc of class named-list containing the parts 

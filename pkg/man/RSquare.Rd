@@ -5,9 +5,9 @@
 }
 \description{
 It returns the R-square of a fitted model. 
-If the model is a mixed effects model this function will retur a named lists of R-squares.
-The R2_0 for the fixed part and the R2_1, R2_2,... for the random parts 
-The R-squares will increase with the each nested random effect
+If the model is a mixed effects model this function will return a named lists of R-squares.
+The R2_0 for the fixed part and the R2_1, R2_2,... for the random parts. 
+The R-squares will increase with the each nested random effect.
 }
 \usage{
 RSquare(mymodel)

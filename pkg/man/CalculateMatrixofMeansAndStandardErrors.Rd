@@ -1,7 +1,7 @@
 \name{CalculateMatrixofMeansAndStandardErrors}
 \alias{CalculateMatrixofMeansAndStandardErrors}
 \title{CalculateMatrixofMeansAndStandardErrors}
-\description{Returns the means and standard errors for each factor or factors combination included in formula argument of the call to lm, gls o mle functions}
+\description{Returns the means and standard errors for each factor or factors combination included in formula argument of the call to lm, gls o mle functions.}
 \usage{
 CalculateMatrixofMeansAndStandardErrors(myModel, myData, myModelTerm, Mmatrix)
 }
@@ -13,9 +13,9 @@ CalculateMatrixofMeansAndStandardErrors(myModel, myData, myModelTerm, Mmatrix)
 	A data frame included in the data argument of the lm, gls or mle functions.
 }
   \item{myModelTerm}{
-	myModelTerm is string idenfying the term of the model for which the means and estandar
+	myModelTerm is a string identifying the term of the model for which the means and estandar
 errors are requested. These terms must not contain references to covariables and the factors involved had to be
-declared in the model formula. Let Suppose that the model formula is Y~FactorA+FactorB+FactorA:FactorB+CovariableX,
+declared in the model formula. Let suppose that the model formula is Y~FactorA+FactorB+FactorA:FactorB+CovariableX,
 then the admissible calls to CalculateMatrixofMeansAndStandardErrors are:
 
 CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA",Mmatrix)
@@ -25,7 +25,7 @@ CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA:FactorB",Mmatri
 }
   \item{Mmatrix}{
 
-	 A matrix returned by CalculateMmatrix(myModel,myData) function
+	 A matrix returned by CalculateMmatrix(myModel,myData) function.
 }
 }
 \details{
@@ -33,7 +33,7 @@ CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA:FactorB",Mmatri
 }
 \value{
 
-     A two columns matrix containing means and estandard error for the levels of the model term identified by myModelTerm
+     A two columns matrix containing means and estandard error for the levels of the model term identified by myModelTerm.
 
 }
 \references{
