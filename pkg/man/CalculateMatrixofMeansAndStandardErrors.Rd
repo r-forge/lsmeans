@@ -49,7 +49,7 @@ CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA:FactorB",Mmatri
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+	\code{\link{MeanAndVariance}}
 }
 \examples{
 library(nlme)
