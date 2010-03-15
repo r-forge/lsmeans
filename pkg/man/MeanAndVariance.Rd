@@ -8,11 +8,11 @@ Returns a vector containing the mean, the variance and the coefficients needed
 to combine the model's parameters to obtain the required mean and variance. 
 }
 \usage{
-MeanAndVariance(tratamiento, Mmatrix, myModel)
+MeanAndVariance(MeanLabel, Mmatrix, myModel)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{tratamiento}{
+  \item{MeanLabel}{
 String identifying a level of a factor or a combination of levels of interacting factors.
 The factors involved had to be declared in the model formula. 
 Let Suppose that the model formula is Y~FactorA+FactorB+FactorA:FactorB+CovariableX,

@@ -210,14 +210,14 @@ CalculateMmatrix<-function(myModel,myData)
   x
   }
 
- MeanAndVariance<-function(tratamiento,Mmatrix,myModel)
+ MeanAndVariance<-function(MeanLabel,Mmatrix,myModel)
   {
 
   if (class(myModel)=="lme") MyCoefficientes<-myModel$coefficients$fixed
   if (class(myModel)=="gls") MyCoefficientes<-myModel$coefficients
   if (class(myModel)=="lm")  MyCoefficientes<-myModel$coefficients[complete.cases(myModel$coefficients)]
 
-  x<-linear.combination.to.estimate.a.mean(tratamiento,Mmatrix,MyCoefficientes)
+  x<-linear.combination.to.estimate.a.mean(MeanLabel,Mmatrix,MyCoefficientes)
 
   if (class(myModel)=="lme") Result<-c(x%*%MyCoefficientes,x%*%myModel$varFix%*%t(x),x)
   if (class(myModel)=="gls") Result<-c(x%*%MyCoefficientes,x%*%myModel$varBeta%*%t(x),x)
@@ -363,4 +363,3 @@ RSquare<-function(mymodel)
         rr
 }
 #--------------------------------------------------------------------------
-
