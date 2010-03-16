@@ -19,12 +19,7 @@ LazyLoad: \tab yes\cr
 }
 
 
-The package contains the following main functions.
-     CalculateMmatrix
-     CalculateMatrixofMeansAndStandardErrors
-     MeanAndVariance
-     MeansComparison
-     RSquare
+The package contains the following main functions: CalculateMmatrix, CalculateMatrixofMeansAndStandardErrors, MeanAndVariance, MeansComparison and RSquare.
 
 }
 \author{
@@ -34,7 +29,7 @@ The package contains the following main functions.
 	Julio A. Di Rienzo  <email: dirienzo@agro.unc.edu.ar> and Maria del Carmen Romero <email: mariadelc.romero@gmail.com>
  }
 \references{
-~~ Literature or other references for background information ~~
+
 }
 \keyword{ package }
 \seealso{
