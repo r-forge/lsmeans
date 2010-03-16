@@ -14,7 +14,7 @@ CalculateMmatrix(myModel, myData)
 	An object of class lm, gls or mle.
 }
   \item{myData}{
-	A data frame included in the data argument of the lm, gls or mle functions.
+	A data frame included in the data argument of the call to the lm, gls and mle functions.
 }
 }
 \details{
