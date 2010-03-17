@@ -4,8 +4,7 @@
 \docType{package}
 \title{lsmeans}
 \description{Calculates the lsmeans and their variances for lm, gls or lme models.
-	It also contains a function for means comparisons and for contrasting linear
-	combination of parameters.
+	It also contains a function for means comparisons.
 	The present version only works with default parametrization.
 }
 \details{
