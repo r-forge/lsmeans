@@ -45,6 +45,16 @@
 #
 # CalculateMatrixofMeansAndStandardErrors(myModel,myData,"Treatment:sex",Mmatrix)
 #
+# To obtain de coefficient of linear combination need to get the matrix of means
+# and estandard error use:
+#
+# CalculateLinearCombinationsToGetExpectedValues(myModel,myData,myModelTerm,Mmatrix)
+#
+# It works in the same maner as it does  CalculateMatrixofMeansAndStandardErrors
+# but insted of returning a matrix of means and standard errors it returns
+# the need coefficientes of the linear combination of parametres to get those
+# estimates.
+#
 # To obtain a single mean, its variance and the linear combination used to
 # generate these estimates call MeanAndVariance(). For example if
 # the mean of say level T2 of "Treatment" is required try the following
@@ -259,6 +269,31 @@ CalculateMatrixofMeansAndStandardErrors<-function(myModel,myData,myModelTerm,Mma
  for (i in (1:length(MyList))) MyTable<-rbind(MyTable,c(MeanAndVariance(MyList[i],Mmatrix,myModel)[1],sqrt(MeanAndVariance(MyList[i],Mmatrix,myModel)[2])))
  rownames(MyTable)<-MyList
  colnames(MyTable)<-c("Mean","S.E.")
+ MyTable
+}
+
+#--------------------------------------------------------------------------
+CalculateLinearCombinationsToGetExpectedValues<-function(myModel,myData,myModelTerm,Mmatrix)
+{
+ factores<-strsplit(myModelTerm, ":")
+ f<-factores[[1]]
+
+ MyList=paste(rep(f[1],nrow(myData)),myData[,f[1]],sep='')
+ if (length(f)>1) for (i in (2:length(f)))
+    {
+    MyList=paste(MyList,paste(rep(f[i],nrow(myData)),myData[,f[i]],sep=''),sep=':')
+    }
+ MyList=unique(MyList)
+
+ MyTable<-c()
+ for (i in (1:length(MyList))) MyTable<-rbind(MyTable,MeanAndVariance(MyList[i],Mmatrix,myModel)[c(-1,-2)])
+ rownames(MyTable)<-MyList
+
+  if (class(myModel)=="lme") MyCoefficientes<-myModel$coefficients$fixed
+  if (class(myModel)=="gls") MyCoefficientes<-myModel$coefficients
+  if (class(myModel)=="lm")  MyCoefficientes<-myModel$coefficients[complete.cases(myModel$coefficients)]
+
+ colnames(MyTable)<-names(MyCoefficientes);
  MyTable
 }
 #---------------------------------------------------------------------------
