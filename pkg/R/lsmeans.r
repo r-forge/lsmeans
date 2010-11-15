@@ -48,11 +48,11 @@
 # To obtain de coefficient of linear combination need to get the matrix of means
 # and estandard error use:
 #
-# CalculateLinearCombinationsToGetExpectedValues(myModel,myData,myModelTerm,Mmatrix)
+# LinearCombinationsCoefficientsToGetMean(myModel,myData,myModelTerm,Mmatrix)
 #
 # It works in the same maner as it does  CalculateMatrixofMeansAndStandardErrors
 # but insted of returning a matrix of means and standard errors it returns
-# the need coefficientes of the linear combination of parametres to get those
+# the coefficientes of the linear combination of parametres to get those
 # estimates.
 #
 # To obtain a single mean, its variance and the linear combination used to
@@ -273,7 +273,7 @@ CalculateMatrixofMeansAndStandardErrors<-function(myModel,myData,myModelTerm,Mma
 }
 
 #--------------------------------------------------------------------------
-CalculateLinearCombinationsToGetExpectedValues<-function(myModel,myData,myModelTerm,Mmatrix)
+LinearCombinationsCoefficientsToGetMean<-function(myModel,myData,myModelTerm,Mmatrix)
 {
  factores<-strsplit(myModelTerm, ":")
  f<-factores[[1]]
