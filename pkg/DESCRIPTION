@@ -8,4 +8,6 @@ Maintainer: Maria del Carmen Romero <mariadelc.romero@gmail.com>
 Description: Calculates the lsmeans and their variances for lm, gls or lme models.
 	It also contains a function for mean comparisons and for contrasting linear
 	combination of parameters in the modelMore about what it does (maybe more than one line)
-License: GPL (>=2)
+License: GPL-2
+URL: http://lsmeans.r-forge.r-project.org/
+Depends: R (>= 2.10)
