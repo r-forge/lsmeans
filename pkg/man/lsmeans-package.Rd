@@ -41,6 +41,7 @@ The package contains the following main functions: CalculateMmatrix, CalculateMa
 
 }
 \examples{
+library(nlme)
 library(lsmeans)
 Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 
