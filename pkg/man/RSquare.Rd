@@ -43,6 +43,7 @@ then for each random effect an R-square is added with names R2_1,R2_2,...
 }
 \examples{
 library(nlme)
+library(lme4)
 library(lsmeans)
 Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 

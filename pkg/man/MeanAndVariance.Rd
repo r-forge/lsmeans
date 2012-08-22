@@ -57,6 +57,7 @@ combine the model's parameters to obtain the  required mean and variance
 }
 \examples{
 library(nlme)
+library(lme4)
 library(lsmeans)
 Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 

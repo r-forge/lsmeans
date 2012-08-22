@@ -67,6 +67,7 @@ the parameter.
 \examples{
 
 library(nlme)
+library(lme4)
 library(lsmeans)
 Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 

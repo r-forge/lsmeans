@@ -47,6 +47,7 @@ CalculateMmatrix(myModel, myData)
 \examples{
 
 library(nlme)
+library(lme4)
 library(lsmeans)
 Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 myModel<-lme(yield~1+Variety+nitro+Variety:nitro,random =~1|Block/Variety,,method="REML",data=Oats)

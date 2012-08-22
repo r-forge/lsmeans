@@ -53,6 +53,7 @@ CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA:FactorB",Mmatri
 }
 \examples{
 library(nlme)
+library(lme4)
 library(lsmeans)
 Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 

@@ -44,6 +44,7 @@ p: p-value for the null hypotesis, Fobs: Observed F-estatistics, numDF: 1 or the
 }
 \examples{
 library(nlme)
+library(lme4)
 library(lsmeans)
 Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 
