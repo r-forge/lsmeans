@@ -3,7 +3,7 @@
 \title{CalculateMatrixofMeansAndStandardErrors}
 \description{Returns the means and standard errors for each factor or factors combination included in formula argument of the call to lm, gls o mle functions.}
 \usage{
-CalculateMatrixofMeansAndStandardErrors(myModel, myData, myModelTerm, Mmatrix)
+CalculateMatrixofMeansAndStandardErrors(myModel, myData, myModelTerm, Mmatrix,MissingCells)
 }
 \arguments{
   \item{myModel}{
@@ -18,15 +18,20 @@ errors are requested. These terms must not contain references to covariables and
 declared in the model formula. Let suppose that the model formula is Y~FactorA+FactorB+FactorA:FactorB+CovariableX,
 then the admissible calls to CalculateMatrixofMeansAndStandardErrors are:
 
-CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA",Mmatrix)
-CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorB",Mmatrix)
-CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA:FactorB",Mmatrix)
+CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA",Mmatrix,MissingCells)
+CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorB",Mmatrix,MissingCells)
+CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA:FactorB",Mmatrix,MissingCells)
 
 }
   \item{Mmatrix}{
 
 	 A matrix returned by CalculateMmatrix(myModel,myData) function.
 }
+  \item{MissingCells}{
+
+	 MissingCells=FALSE.
+}
+
 }
 \details{
 
@@ -59,9 +64,9 @@ Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 
 myModel<-lme(yield~1+Variety+nitro+Variety:nitro,random =~1|Block/Variety,,method="REML",data=Oats)
 Mmatrix=CalculateMmatrix(myModel,Oats)
-CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety",Mmatrix)
-CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"nitro",Mmatrix)
-CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety:nitro",Mmatrix)
+CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety",Mmatrix,MissingCells=FALSE)
+CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"nitro",Mmatrix,MissingCells=FALSE)
+CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety:nitro",Mmatrix,MissingCells=FALSE)
 
 
 }
