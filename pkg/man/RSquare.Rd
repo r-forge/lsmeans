@@ -10,11 +10,11 @@ The R2_0 for the fixed part and the R2_1, R2_2,... for the random parts.
 The R-squares will increase with the each nested random effect.
 }
 \usage{
-RSquare(mymodel)
+RSquare(myModel)
 }
 
 \arguments{
-  \item{mymodel}{
+  \item{myModel}{
 	An object of class lm, gls or mle.
 }
 }
