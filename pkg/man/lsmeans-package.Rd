@@ -51,7 +51,7 @@ anova(myModel)
 Mmatrix=CalculateMmatrix(myModel,Oats)
 CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety",Mmatrix,MissingCells=FALSE)
 CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"nitro",Mmatrix,MissingCells=FALSE)
-CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety:nitro",Mmatrix),MissingCells=FALSE
+CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety:nitro",Mmatrix,MissingCells=FALSE)
 MeanAndVariance("VarietyVictory", Mmatrix,myModel)
 MeanAndVariance("VarietyVictory:nitro0.6", Mmatrix,myModel)
 MeansComparison("VarietyVictory:nitro0.6","VarietyVictory:nitro0.4",Mmatrix,myModel,myDF=10)
