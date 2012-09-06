@@ -48,9 +48,9 @@ library(lme4)
 library(lsmeans)
 Oats[,"nitro"]=as.factor(Oats[,"nitro"])
 
-myModel<-lme(yield~1+Variety+nitro+Variety:nitro,random =~1|Block/Variety,,method="REML",data=Oats)
-mycombination<-as.vector(c(0,1,-1,0,0,0))
-contrastLC(myModel, mycombination)
+#myModel<-lme(yield~1+Variety+nitro+Variety:nitro,random =~1|Block/Variety,,method="REML",data=Oats)
+#mycombination<-as.vector(c(0,1,-1,0,0,0))
+#contrastLC(myModel, mycombination)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
