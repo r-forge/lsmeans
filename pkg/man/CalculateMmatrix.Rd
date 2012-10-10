@@ -11,10 +11,10 @@ CalculateMmatrix(myModel, myData)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{myModel}{
-	An object of class lm, gls or mle.
+	An object of class lm, gls, mle, glm, mer, lmerMod or glmerMod
 }
   \item{myData}{
-	A data frame included in the data argument of the call to the lm, gls and mle functions.
+	A data frame included in the data argument of the call to the lm, gls, mle, glm, lmer and glmer functions.
 }
 }
 \details{

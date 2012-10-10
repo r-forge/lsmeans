@@ -19,6 +19,7 @@
 #     MeanAndVariance
 #     MeansComparison
 #     contrastLC
+#     Test_Contrast
 #     RSquare
 #     TheModelCoefficients
 #     TheModelCoefficientsCovar
@@ -28,8 +29,8 @@
 # Load the package
 # Let suppose that myData is a dataframe containing the columns:
 # "y", "Treatment" and "Sex". "y" represent the response, "Treatment" a factor
-# with levels T1,T2,T3 and "Sex" a factor wiht levels F and M.
-# Let an object named "myModel" contains the fitted lm, gls, lme or mer model.
+# with levels T1,T2,T3 and "Sex" a factor with levels F and M.
+# Let an object named "myModel" contains the model fitted by lm, gls, lme, lmer, or glmer.
 # Let suppose that the formula for this myModel is y~Treatment+Sex+Treatment:Sex
 #
 # The first step is to calculate:
@@ -50,7 +51,7 @@
 # To obtain de coefficient of linear combination need to get the matrix of means
 # and estandard error use:
 #
-# LinearCombinationsCoefficientsToGetMean(myModel,myData,myModelTerm,Mmatrix)
+# Linear.combination.to.estimate.a.mean(MeanLabel,Mmatrix,myCoefficients)
 #
 # It works in the same way as it does  CalculateMatrixofMeansAndStandardErrors
 # but insted of returning a matrix of means and standard errors it returns
@@ -93,6 +94,12 @@
 # the numerator degree of freedom of the F-test.
 # The argument myCombination can be a single vector or a matrix of combinations,
 # each combination corresponding to a row.
+#
+#Test_Contrast(myModel,myData,myModelTerm,Mmatrix,myContrast,denDF)
+#
+#The function returns: Chi-square statistics, degree of freedom, pvalue, the contrasts value,
+#and the estandard error of the contrast
+#
 #
 # To obtain the R-square of the fitted myModel use RSquare(myModel). If the myModel
 # is a mixed effects myModel this function will retur an R-square for the fixed
@@ -279,7 +286,7 @@ CalculateMmatrix<-function(myModel,myData)
  }
  #---------------------------------------------------------------------------
 
- linear.combination.to.estimate.a.mean<-function(MeanLabel,Mmatrix,myCoefficients)
+ Linear.combination.to.estimate.a.mean<-function(MeanLabel,Mmatrix,myCoefficients)
  {
   ss<-strsplit(MeanLabel, ":")[[1]]
   result<-SearchForASubstringInAListOfStringsWithSeparators(ss[1],rownames(Mmatrix),":")
@@ -298,7 +305,7 @@ CalculateMmatrix<-function(myModel,myData)
   {
   myCoefficients=TheModelCoefficients(myModel)
   covar=TheModelCoefficientsCovar(myModel)
-  result<-(linear.combination.to.estimate.a.mean(MeanLabel,Mmatrix,myCoefficients))
+  result<-(Linear.combination.to.estimate.a.mean(MeanLabel,Mmatrix,myCoefficients))
   myResult<-c(result%*%myCoefficients,result%*%covar%*%t(result),result)
   myResult
   }

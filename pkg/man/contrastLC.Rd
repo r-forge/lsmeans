@@ -12,7 +12,7 @@ contrastLC(myModel, mycombination)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{myModel}{
-	An object of class lm, gls or mle.
+	An object of class lm, gls, mle, glm, mer, lmerMod or glmerMod
 }
   \item{mycombination}{
 	A vector of length p (p=the number of parameters of the fixed part of the fitted model) containing  a set of coefficients.

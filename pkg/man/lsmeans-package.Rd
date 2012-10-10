@@ -3,16 +3,16 @@
 \alias{lsmeans}
 \docType{package}
 \title{lsmeans}
-\description{Calculates the lsmeans and their variances for lm, gls or lme models.
-	It also contains a function for means comparisons.
+\description{Calculates the lsmeans and their variances for lm, gls, mle, glm, mer, lmerMod or glmerMod models
+	It also contains a function to test contrasts and to test linear combinations.
 	The present version only works with default parametrization.
 }
 \details{
 \tabular{ll}{
 Package: \tab lsmeans\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2010-03-03\cr
+Version: \tab 2.0\cr
+Date: \tab 2012-10-06\cr
 License: \tab GPL \cr
 LazyLoad: \tab yes\cr
 }
@@ -35,9 +35,9 @@ The package contains the following main functions: CalculateMmatrix, CalculateMa
 	\code{\link{CalculateMmatrix}}, 
 	\code{\link{CalculateMatrixofMeansAndStandardErrors}},
 	\code{\link{MeanAndVariance}},
-	\code{\link{MeansComparison}},
+	\code{\link{contrastLC}}, 
+	\code{\link{Test_Contrast}},
 	\code{\link{RSquare}}
-
 
 }
 \examples{
@@ -54,8 +54,9 @@ CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"nitro",Mmatrix,MissingCell
 CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety:nitro",Mmatrix,MissingCells=FALSE)
 MeanAndVariance("VarietyVictory", Mmatrix,myModel)
 MeanAndVariance("VarietyVictory:nitro0.6", Mmatrix,myModel)
-MeansComparison("VarietyVictory:nitro0.6","VarietyVictory:nitro0.4",Mmatrix,myModel,myDF=10)
-MeansComparison("VarietyVictory:nitro0.6","VarietyMarvellous:nitro0.4",Mmatrix,myModel,myDF=45)
+Test_Contrast(myModel,myData,"Variety",Mmatrix,c(1,-1,0),10)
+contrastLC(myModel,c(0,0,0,1,-1,0,0,0,0,0,0,0))
+
 RSquare(myModel)
 
 }

@@ -32,7 +32,7 @@ MeansComparison("FactorAA1:FactorBB1","FactorAA1:FactorBB2", Mmatrix, myModel,my
 	A matrix returned by CalculateMmatrix(myModel,myData)
 }
   \item{myModel}{
-	An object of class lm, gls or mle
+	An object of class lm, gls, mle, glm, mer, lmerMod or glmerMod
 }
   \item{myDF}{
 

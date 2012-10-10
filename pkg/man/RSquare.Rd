@@ -15,7 +15,7 @@ RSquare(myModel)
 
 \arguments{
   \item{myModel}{
-	An object of class lm, gls or mle.
+	An object of class lm, gls, mle, glm, mer, lmerMod or glmerMod.
 }
 }
 \details{

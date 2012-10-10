@@ -1,22 +1,19 @@
 \name{CalculateMatrixofMeansAndStandardErrors}
 \alias{CalculateMatrixofMeansAndStandardErrors}
 \title{CalculateMatrixofMeansAndStandardErrors}
-\description{Returns the means and standard errors for each factor or factors combination included in formula argument of the call to lm, gls o mle functions.}
+\description{Returns the means and their standard errors for each factor or factors combination included in formula argument of the call to lm, gls, mle,lmer or glmer functions.}
 \usage{
-CalculateMatrixofMeansAndStandardErrors(myModel, myData, myModelTerm, Mmatrix,MissingCells)
+CalculateMatrixofMeansAndStandardErrors(myModel, myData,myModelTerm, Mmatrix,MissingCells)
 }
 \arguments{
   \item{myModel}{
-	An object of class lm, gls or mle.
+	An object of class lm, gls, mle, glm, mer, lmerMod or glmerMod
 }
   \item{myData}{
-	A data frame included in the data argument of the lm, gls or mle functions.
+	A data frame included in the data argument of the call to the lm, gls, mle, glm, lmer and glmer functions.
 }
   \item{myModelTerm}{
-	myModelTerm is a string identifying the term of the model for which the means and estandar
-errors are requested. These terms must not contain references to covariables and the factors involved had to be
-declared in the model formula. Let suppose that the model formula is Y~FactorA+FactorB+FactorA:FactorB+CovariableX,
-then the admissible calls to CalculateMatrixofMeansAndStandardErrors are:
+	myModelTerm is a string identifying the term of the model for which the means and estandar errors are requested. These terms must not contain references to covariables. Only the factors involved in the model formula can be included. Let suppose that the model formula is Y~FactorA+FactorB+FactorA:FactoB +CovariableX, then admissible calls to CalculateMatrixofMeansAndStandardErrors are:
 
 CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA",Mmatrix,MissingCells)
 CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorB",Mmatrix,MissingCells)
@@ -30,6 +27,8 @@ CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA:FactorB",Mmatri
   \item{MissingCells}{
 
 	 MissingCells=FALSE.
+	 If TRUE it will return, when possible, estimations for means for levels combinations not present in the
+data set. 
 }
 
 }
@@ -38,7 +37,7 @@ CalculateMatrixofMeansAndStandardErrors(myModel, myData,"FactorA:FactorB",Mmatri
 }
 \value{
 
-     A two columns matrix containing means and estandard error for the levels of the model term identified by myModelTerm.
+     A two columns matrix containing means and their estandard error for the levels of the model term identified by myModelTerm.
 
 }
 \references{
