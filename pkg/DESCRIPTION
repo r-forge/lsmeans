@@ -1,11 +1,11 @@
 Package: lsmeans
 Type: Package
-Title: Calculates the lsmeans and their variances for lm, gls or lme models
+Title: Calculates the lsmeans and their variances for lm, gls,lme,mer,lmer and glmer models
 Version: 2.0
 Date: 2012-07-07
 Author: Julio A. Di Rienzo dirienzo@agro.unc.edu.ar http://sites.google.com/site/juliodirienzo
 Maintainer: Maria del Carmen Romero <mariadelc.romero@gmail.com>
-Description: Calculates the lsmeans and their variances for lm, gls or lme models.
+Description: Calculates the lsmeans and their variances for lm, gls,lme,mer,lmer and glmer models.
 	It also contains a function for mean comparisons and for contrasting linear
 	combination of parameters in the modelMore about what it does (maybe more than one line)
 License: GPL-2
