@@ -54,8 +54,8 @@ CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"nitro",Mmatrix,MissingCell
 CalculateMatrixofMeansAndStandardErrors(myModel,Oats,"Variety:nitro",Mmatrix,MissingCells=FALSE)
 MeanAndVariance("VarietyVictory", Mmatrix,myModel)
 MeanAndVariance("VarietyVictory:nitro0.6", Mmatrix,myModel)
-Test_Contrast(myModel,myData,"Variety",Mmatrix,c(1,-1,0),10)
-contrastLC(myModel,c(0,0,0,1,-1,0,0,0,0,0,0,0))
+# Test_Contrast(myModel,myData,"Variety",Mmatrix,c(1,-1,0),10)
+# contrastLC(myModel,c(0,0,0,1,-1,0,0,0,0,0,0,0))
 
 RSquare(myModel)
 
