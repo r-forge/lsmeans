@@ -34,7 +34,9 @@
 # Let suppose that the formula for this myModel is y~Treatment+Sex+Treatment:Sex
 #
 # The first step is to calculate:
+#
 # Mmatrix<-CalculateMmatrix(myModel,myData)
+#
 #(CalculateMmatrix calculates a matrix needed for other routines
 # this function is computationally demanding. There is no need to call it
 # more than once for a given model)
@@ -266,18 +268,21 @@ CalculateMmatrix<-function(myModel,myData)
  if (is.numeric(myData[,i]))
  {
  g<-SearchForASubstringInAListOfStringsWithSeparators(colnames(myData)[i],myCoefficientsNames,":")
+
  if (length(g)>0) for (j in (1:length(g)))
         {
             sc=colnames(myData)[i]
             ss=strsplit(myCoefficientsNames[g[j]], ":")[[1]]
             ss=setdiff(ss,sc)
             if (length(ss)>1) ss=paste(ss,collapse=":")
-            indices<-c()
-            if (length(ss)>0) indices<-grep(ss,myList,fixed =TRUE)
+
+            indices<-which(myCoefficientsNames==ss)
+#            indices<-c()
+#            if (length(ss)>0) indices<-grep(ss,myList,fixed =TRUE)
             mx=mean(myData[,i],na.rm = TRUE)
             if   (length(indices)==0) myCoefficients[,g[j]]<-mx
             if   (length(indices)>0)
-                 for (k in (1:length(indices))) myCoefficients[indices[k],g[j]]=mx
+                 for (k in (1:length(indices))) myCoefficients[,g[j]]=myCoefficients[,indices[k]]*mx
         }
  }
  rownames(myCoefficients)<-myList
