@@ -353,11 +353,11 @@ FindGreatestDFForAGivenListOfMeansForA_lme_model<-function(myModel,meanslist)
 {
   elgl<-function(myMean,myTerm)
      {
-        result=(attributes(gregexpr (myTerm,myMean,fixed = T)[[1]])[[1]]==nchar(myTerm))
+        result=unique((attributes(gregexpr (myTerm,myMean,fixed = T)[[1]])[[1]]==nchar(myTerm)))
      }
-  maxgl<-function(myterm,meanslist)
+  maxgl<-function(myTerm,meanslist)
       {
-      sapply(meanslist,elgl,myterm)
+      sapply(meanslist,elgl,myTerm)
       }
    if (class(myModel)=="lme")
   {
@@ -446,7 +446,7 @@ Test_Contrast<-function(myModel,myData,myModelTerm,Mmatrix,myContrast,denDF)
 {
  factores<-strsplit(myModelTerm, ":")
  f<-factores[[1]]
- if (c((formula(myModel)[[2]])) %in% colnames(myData))  cc=complete.cases(myData[,c(unlist(factores),as.character(formula(myModel)[[2]]))]) else cc=complete.cases(myData[,c(unlist(factores))])
+ if (c((formula(myModel)[[2]])) %in% colnames(myData)) cc=complete.cases(myData[,c(unlist(factores),as.character(formula(myModel)[[2]]))]) else cc=complete.cases(myData[,c(unlist(factores))])
  rowdatos=nrow(as.data.frame(myData[cc,]))
 
  myList=paste(rep(f[1],rowdatos),myData[cc,f[1]],sep='')
@@ -672,3 +672,21 @@ dfMixedModelTypeIAnova<-function(myModel,TheTitle="Building Anova Type I Table")
 #---------------------------------------------------------------------------
  RebuildFactorLevels<-function(myData,elfactor){unique(paste(elfactor,levels(myData[,elfactor]),sep=""))}
 #---------------------------------------------------------------------------
+
+validCases<-function(myModel,myData)
+{
+#returns the row indices of complete cases
+#according to variables incluyded in the model
+if ((class(myModel)=="mer")|(class(myModel)=="glmerMod")|(class(myModel)=="lmerMod")) cl=(summary(myModel)@call) else cl=(summary(myModel)$call)
+clf=format(cl)
+for (a in (c(" ",":",",","(",")","~","|")))
+   {
+        l=c()
+        for (i in (1:length(clf)))
+        {
+        l=c(l,strsplit(clf[i],a,fixed=T))
+        }
+   clf=unique(unlist(l))
+   }
+ seq(nrow(myData))[complete.cases(myData[,intersect(clf,colnames(myData))])]
+}
